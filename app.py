@@ -30,12 +30,26 @@ def index():
 
 
 @app.route("/login", methods=["POST"])
-def login
+def login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    if email == "zakariaaliti76@gmail.com" and password == "1234":
+        return redirect("/dashboard")
     else:
         flash("User not found or an error occurred", "error")
         return render_template("index.html")
 
 
+@app.route("/send_data_js", methods=["POST", "GET"])
+def send_data_js():
+    with open("File.json", "r") as json_file:
+        data_file = json.load(json_file)
+    return jsonify(data_file)
+
+
+# -----------------Create a custom PDF class------------
+class PDF(FPDF):
+    def header(self):
         self.set_font("Arial", "B", 12)
         self.cell(0, 10, "Public Keys of participant clients", 0, 1, "C")
         self.ln(10)
