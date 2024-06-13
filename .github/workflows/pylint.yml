@@ -25,6 +25,24 @@ jobs:
 
       - name: Run tests
         run: |
-          # Add your test commands here
-          echo "Tests passed"
+          pytest
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build the Docker image
+        run: docker build -t zakariaaliti76532/bcfl_ips:tagname .
+
+      - name: Push the Docker image
+        run: docker push zakariaaliti76532/bcfl_ips:tagname
