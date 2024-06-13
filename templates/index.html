@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<!--Nav bar-->    
+  
+  <nav class="navbar">
+    <div class="left">
+      <div class="logo-container">
+        <div id="animationCon"></div>
+        <h1>BC-FL</h1>
+      </div>
+    </div>
+  </nav>
+<!--End navbar-->
+<div id="animContainer"></div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flash-message error">
+
+  {% for message in messages %}
+  <p>{{ message }}</p>
+
+  {% endfor %}
+</div>
+
+{% endif %}
+{% endwith %}
+
+<div class="container">
+        <div class="login-box">
+            <p>Login</p>
+            <form action="/login" method="POST" id="login-form">
+                <div class="user-box">
+                    <input required name="email" type="email">
+                    <label>Email</label>
+                </div>
+                <div class="user-box">
+                    <input required name="password" type="password">
+                    <label>Password</label>
+                </div>
+                <a href="#" id="submit-btn" class="buttonload">
+                    
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                </a>
+            </form>
+
+           <a href="" class="a2">Password forgotten?</a>
+        
+           
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.11.0/lottie.min.js" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
