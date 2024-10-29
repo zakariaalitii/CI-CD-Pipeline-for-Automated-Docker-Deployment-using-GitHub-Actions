@@ -1,4 +1,4 @@
-![Uploading Architecture_CI_CD.png…]()
+![Architecture_CI_CD](https://github.com/user-attachments/assets/0f0a0ff4-ac3f-4434-ad54-c1165874a3e6)
 
 Cette architecture montre comment GitHub Actions et Docker Hub travaillent ensemble pour 
 automatiser le processus de développement, du commit du code jusqu'au déploiement des images 
